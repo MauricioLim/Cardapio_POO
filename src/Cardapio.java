@@ -13,23 +13,23 @@ public class Cardapio extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("screen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Exemplo JavaFX");
         stage.setScene(scene);
         stage.show();
     }
 
-    Map<String, itemCardapio> itens = new HashMap<>();
 
-    public void mostrar(){
-        for (itemCardapio item : itens.values()) {
-            System.out.println(item.getNome() + " - R$" + item.getPreco());
-        }
 
-        System.out.println();
-        menu();
-    }
+  //public void mostrar(){
+  //    for (itemCardapio item : itens.values()) {
+  //        System.out.println(item.getNome() + " - R$" + item.getPreco());
+  //    }
+
+  //    System.out.println();
+  //    menu();
+  //}
 
     public void adicionarItem() {
         System.out.println("O que tu gostaria de adicionar ao cardapio: \n1 - Bebida \n2 - Comida");
@@ -51,7 +51,7 @@ public class Cardapio extends Application {
                 teclado.nextLine();
 
                 Bebida drink = new Bebida(nome, ml, preco);
-                itens.put(nome, drink);
+                //itens.put(nome, drink);
                 System.out.println();
                 menu();
                 break;
@@ -67,7 +67,7 @@ public class Cardapio extends Application {
                 preco = teclado.nextDouble();
 
                 Comida plate = new Comida(nome, qtd, preco);
-                itens.put(nome, plate);
+               //itens.put(nome, plate);
                 System.out.println();
                 menu();
                 break;
@@ -91,7 +91,7 @@ public class Cardapio extends Application {
                 adicionarItem();
                 break;
             case 2:
-                mostrar();
+                //mostrar();
                 break;
             case 3:
                 System.out.println("Obrigado por visitar! Não volte mais");
