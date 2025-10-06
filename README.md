@@ -18,7 +18,7 @@ Aplicar conhecimentos em programação orientada a objetos utilizando Java e cri
 - *View.fxml*: Tela para visualizar os itens do cardápio.
 - *MenuController.java / AddController.java / ViewController.java*: Controladores das telas, responsáveis pelas ações do usuário.
 
-## Etapas restantes
-- Implementar visualização detalhada de cada item
+## Etapas restante
+- Validação de dados ao adicionar itens
 - Criar tela de pedidos
 - Adicionar persistência de dados (arquivos ou banco de dados)
