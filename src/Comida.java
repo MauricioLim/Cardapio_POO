@@ -1,20 +1,20 @@
 public class Comida implements itemCardapio{
-    private int pessoas;
-    private String prato;
+    private String nome;
+    private int quantidade;
     private double preco;
     
     public Comida(String nome, int qtdPessoas, double valor){
         setNome(nome);
         setPreco(valor);
-        setPessoas(qtdPessoas);
+        setQuantidade(qtdPessoas);
     }
 
     private void setNome(String nome){
-        this.prato = nome;
+        this.nome = nome;
     }
 
     public String getNome(){
-        return this.prato;
+        return this.nome;
     }
 
     public void setPreco(double valor){
@@ -25,11 +25,11 @@ public class Comida implements itemCardapio{
         return this.preco;
     }
 
-    public void setPessoas(int qtd){
-        this.pessoas = qtd;
+    public void setQuantidade(int qtd){
+        this.quantidade = qtd;
     }
 
-    public double getPessoas(){
-        return this.pessoas;
+    public double getQuantidade(){
+        return this.quantidade;
     }
 }

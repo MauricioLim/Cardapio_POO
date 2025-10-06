@@ -6,9 +6,11 @@ import javafx.stage.Stage;
 
 //import java.awt.*;
 import javafx.scene.control.Button;
-
 public class MenuController {
 
+
+
+          private Cardapio cardapio = Cardapio.getInstance();
     @FXML private Button addButton;
     @FXML private Button viewButton;
 
@@ -20,7 +22,7 @@ public class MenuController {
 
             Stage stage = (Stage) addButton.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Adicionar Item");
+            stage.setTitle(" Item");
             //stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,6 +38,8 @@ public class MenuController {
             Stage stage = (Stage) viewButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Adicionar Item");
+            this.cardapio.getItens();
+
             //stage.show();
         } catch (Exception e) {
             e.printStackTrace();

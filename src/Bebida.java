@@ -1,13 +1,13 @@
 public class Bebida implements itemCardapio {
     private String nome;
-    private int qtd;
+    private int quantidade;
     private double preco;
 
 
     public Bebida(String desc, int ml, double valor){
         setNome(desc);
         setPreco(valor);
-        setQtd(ml);
+        setQuantidade(ml);
     }
 
     public String getNome(){
@@ -18,12 +18,12 @@ public class Bebida implements itemCardapio {
         this.nome = desc;
     }
 
-    public int getQtd(){
-        return this.qtd;
+    public int getQuantidade(){
+        return this.quantidade;
     }
 
-    public void setQtd(int qdd){
-        this.qtd = qdd;
+    public void setQuantidade(int qdd){
+        this.quantidade = qdd;
     }
 
     public double getPreco(){

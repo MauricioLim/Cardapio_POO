@@ -9,7 +9,10 @@ import java.util.Scanner;
 
 
 public class Cardapio extends Application {
+    private static Cardapio instance;
     Scanner teclado = new Scanner(System.in);
+
+    private HashMap <Integer, itemCardapio> itens = new HashMap<Integer, itemCardapio>();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -20,93 +23,28 @@ public class Cardapio extends Application {
         stage.show();
     }
 
-
-
-  //public void mostrar(){
-  //    for (itemCardapio item : itens.values()) {
-  //        System.out.println(item.getNome() + " - R$" + item.getPreco());
-  //    }
-
-  //    System.out.println();
-  //    menu();
-  //}
-
-    public void adicionarItem() {
-        System.out.println("O que tu gostaria de adicionar ao cardapio: \n1 - Bebida \n2 - Comida");
-        int op = teclado.nextInt();
-        teclado.nextLine();
-
-
-        switch (op) {
-            case 1:
-                System.out.print("Informe a descrição: ");
-                String nome = teclado.nextLine();
-
-                System.out.print("Informe quantos mls tem a bebida: ");
-                int ml = teclado.nextInt();
-                teclado.nextLine();
-
-                System.out.print("Informe o preço: ");
-                double preco = teclado.nextDouble();
-                teclado.nextLine();
-
-                Bebida drink = new Bebida(nome, ml, preco);
-                //itens.put(nome, drink);
-                System.out.println();
-                menu();
-                break;
-            
-            case 2:
-                System.out.print("Informe a descrição: ");
-                nome = teclado.nextLine();
-
-                System.out.print("Informe quantas pessoas o prato serve: ");
-                int qtd = teclado.nextInt();
-
-                System.out.print("Informe o preço: ");
-                preco = teclado.nextDouble();
-
-                Comida plate = new Comida(nome, qtd, preco);
-               //itens.put(nome, plate);
-                System.out.println();
-                menu();
-                break;
-            default:
-                System.out.println("Opção invalida!");
-                System.out.println();
-                adicionarItem();
-                break;
+    public static Cardapio getInstance() {
+        if (instance == null) {
+            instance = new Cardapio();
         }
-
+        return instance;
     }
 
-    public void menu(){
-        System.out.println();
-        System.out.print("Bem vindo ao Mau lanchonete, o que gostaria de fazer: \n1 - Adicionar item ao cardapio \n2 - Visualizar o carpio \n3 - Sair \nDigite a opção: ");
-        int op  = teclado.nextInt();
-        teclado.nextLine();
-
-        switch (op) {
-            case 1:
-                adicionarItem();
-                break;
-            case 2:
-                //mostrar();
-                break;
-            case 3:
-                System.out.println("Obrigado por visitar! Não volte mais");
-                break;
-            default:    
-                System.out.println("Opção invalida!");
-                System.out.println();
-                menu();
-                break;
-        }
+    public void addBebida(Bebida drink){
+        itens.put(itens.size() + 1, drink);
     }
 
+    public void addComida(Comida food){
+        itens.put(itens.size() + 1, food);
+    }
 
+    public HashMap<Integer, itemCardapio> getItens() {
+        return itens;
+    }
 
     public static void main(String[] args) {
         launch();
     }
 }
+
+

@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class AddController {
 
-    Map<String, itemCardapio> itens = new HashMap<>();
+    private Cardapio cardapio = Cardapio.getInstance();
 
     @FXML private Button helloButton;
     @FXML private Button backButton;
@@ -41,10 +41,12 @@ public class AddController {
 
         if (comida.isSelected()) {
             Comida food = new Comida(descricao.getText(), Integer.parseInt(quantidade.getText()), Double.parseDouble(valor.getText()));
+            this.cardapio.addComida(food);
             System.out.println("Comida adicionado com sucesso");
 
         } else if (bebida.isSelected()) {
             Bebida drink = new Bebida(descricao.getText(), Integer.parseInt(quantidade.getText()), Double.parseDouble(valor.getText()));
+            this.cardapio.addBebida(drink);
             System.out.println("Bebida adicionado com sucesso");
         }
 
