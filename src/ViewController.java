@@ -1,4 +1,3 @@
-import javafx.beans.property.Property;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,14 +9,18 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 public class ViewController {
     @FXML private Button backButton;
-    @FXML private TableView<itemCardapio> itens;
-    @FXML private TableColumn<itemCardapio,String> colunaDesc;
-    @FXML private TableColumn<itemCardapio,String> colunaQtd;
-    @FXML private TableColumn<itemCardapio,String> colunaValor;
+    @FXML private TableView<itemCardapio> itensComida;
+    @FXML private TableView<itemCardapio> itensBebida;
+
+    @FXML private TableColumn<itemCardapio,String> colunaDescComida;
+    //@FXML private TableColumn<itemCardapio,String> colunaQtd;
+    @FXML private TableColumn<itemCardapio,String> colunaValorComida;
+
+    @FXML private TableColumn<itemCardapio,String> colunaDescBebida;
+    @FXML private TableColumn<itemCardapio,String> colunaValorBebida;
 
 
     private Cardapio cardapio = Cardapio.getInstance();
@@ -38,12 +41,18 @@ public class ViewController {
     }
 
     public void initialize() {
-        colunaDesc.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        colunaQtd.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-        colunaValor.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
+
+        colunaDescComida.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        //colunaQtd.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+        colunaValorComida.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
+        colunaDescBebida.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        //colunaQtd.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+        colunaValorBebida.setCellValueFactory(new PropertyValueFactory<>("preco"));
 
         ObservableList<itemCardapio> lista = FXCollections.observableArrayList(cardapio.getItens().values());
 
-        itens.setItems(lista);
+        itensComida.setItems(lista);
     }
 }

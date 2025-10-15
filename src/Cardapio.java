@@ -12,7 +12,7 @@ public class Cardapio extends Application {
     private static Cardapio instance;
     Scanner teclado = new Scanner(System.in);
 
-    private HashMap <Integer, itemCardapio> itens = new HashMap<Integer, itemCardapio>();
+    private HashMap <String, itemCardapio> itens = new HashMap<String, itemCardapio>();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -31,14 +31,14 @@ public class Cardapio extends Application {
     }
 
     public void addBebida(Bebida drink){
-        itens.put(itens.size() + 1, drink);
+        itens.put("B" + itens.size() + 1, drink);
     }
 
     public void addComida(Comida food){
-        itens.put(itens.size() + 1, food);
+        itens.put("C" + itens.size() + 1, food);
     }
 
-    public HashMap<Integer, itemCardapio> getItens() {
+    public HashMap<String, itemCardapio> getItens() {
         return itens;
     }
 
